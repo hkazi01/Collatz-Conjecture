@@ -1,0 +1,2 @@
+# Collatz-Conjecture
+Created a program that generates a random number between 0 and 999,999,999. The program then applies the Collatz Conjecture and displays the value's as they fluctuate. The Collatz Conjecture is basically pick any number, if its even divide it by 2, if it's odd multiply it by 3 and add 1. You just keep doing that and eventually, no matter what number you have, you will end up at 1.
