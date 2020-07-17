@@ -1,0 +1,88 @@
+
+int bonusW = 0;
+int bonusH = 0;
+int sizeInc = 0;
+int testNum = (int) random(0, 1000000000);
+int finalC = 0;
+void setup()
+{
+  fullScreen();
+  background(0);
+  textSize(50);
+}
+void draw()
+{
+  if (key == 'b') {
+    exit();
+  }
+  if (!(testNum == 1))
+  {
+    if (testNum % 2 == 0)
+    {
+      print();
+      testNum = testNum / 2;
+    } else
+    {
+      print();
+      testNum = (testNum * 3) + 1;
+    }
+  } else
+  {
+    print();
+    testNum = (int) random(0, 1000000000);
+    finalC++;
+    bonusW = 0;
+    bonusH = 0;
+    sizeInc = 0;
+    background(0);
+  }
+  if (finalC == 10)
+  {
+    background(255, 0, 0);
+    exit();
+  }
+}
+
+void print()
+{
+  if (testNum>999999)
+  {
+    fill(255, 200, 200);
+    textSize(10);
+  } else if (999999>testNum && testNum>99999)
+  {
+    fill(255, 150, 150);
+    textSize(15);
+  } else if (99999>testNum && testNum > 9999)
+  {
+    fill(255, 0, 0);
+    textSize(25);
+  } else if (9999>testNum && testNum>999)
+  {
+    fill(255, 100, 100);
+    textSize(50);
+  } else if (999>testNum && testNum>99)
+  {
+    fill(150, 200, 150);
+    textSize(30);
+  } else if (99>testNum)
+  {
+    fill(0, 255, 0);
+    textSize(50);
+  }
+  text(testNum, 30 + bonusW, 50 + bonusH);
+  bonusW+=150;
+  if (bonusW>=width)
+  {
+    bonusW = 0;
+    bonusH+=90;
+    sizeInc+=1;
+    textSize(50-sizeInc);
+  }
+  if (bonusH>=height)
+  {
+    background(0);
+    bonusH = 0;
+  }
+  delay(100);
+}
